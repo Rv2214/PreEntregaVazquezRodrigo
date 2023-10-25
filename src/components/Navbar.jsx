@@ -1,6 +1,7 @@
 import React from 'react'
 import CartWidget from './CartWidget'
 import { Menu, MenuButton, MenuList, MenuItem, Flex, Box, Spacer } from '@chakra-ui/react'
+import { Link } from 'react-router-dom'
 
 const navbar = () => {
     return (
@@ -9,8 +10,10 @@ const navbar = () => {
 
             <Flex>
                 <Box>
+                    <Link to={"/"}>
                     {/* Brand */}
                     <h1>Rv Comers</h1>
+                    </Link>
                 </Box>
 
                 <Spacer/>
@@ -21,18 +24,30 @@ const navbar = () => {
                             Categorias
                         </MenuButton>
                         <MenuList>
-                            <MenuItem>Categoria A</MenuItem>
-                            <MenuItem>Categoria B</MenuItem>
-                            <MenuItem>Categoria C</MenuItem>
-
+                            <Link to={`/category/${"Men's Clothing"}`}>
+                            <MenuItem>Men's Clothing</MenuItem>
+                            </Link>
+                            <Link to={`/category/${"Women's Clothing"}`}>
+                            <MenuItem>Women's Clothing</MenuItem>
+                            </Link>
+                            <Link to={`/category/${"Electronics"}`}>
+                            <MenuItem>Electronics</MenuItem>
+                            </Link>
+                            <Link to={`/category/${"Jewelry"}`}>                            
+                            <MenuItem>Jewelry</MenuItem>    
+                            </Link>
                         </MenuList>
                     </Menu>
                 </Box>
 
                 <Spacer />
                 <Box>
+
+                    <Link to={"/Cart"}>
                     {/* Carrito */}
                     <CartWidget />
+                    </Link>
+
                 </Box>
             </Flex>
 
