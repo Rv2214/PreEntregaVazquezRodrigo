@@ -1,10 +1,11 @@
-##RV Comers App
->Proyecto de e-commerce enfocado a las distintas etapas de entrega del curso de React, en Coder-House. 
+# RV Comers App
 
-##Tecnologias utilizadas
-React 
-Vite 
+> Proyecto de e-commerce enfocado a las distintas etapas de entrega del curso de React, en Coder-House.
 
-##Presentacion 
+## Tecnologías Utilizadas
+- React
+- Vite
 
-![Demo GIF](https://github.com/Rv2214/PreEntregaVazquezRodrigo/issues/1#issue-1964625509)
+## Presentación
+
+![Rv Comers app](https://github.com/Rv2214/PreEntregaVazquezRodrigo/assets/131439746/3803f4ad-b89c-44a7-8174-35e85a1c672c)
