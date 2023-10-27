@@ -6,7 +6,7 @@ import CounterComponent from './CounterComponent';
 const ItemDetail = ({ product }) => {
 
     const { id } = useParams()
-
+    
     const filteredProduct= product.filter((product) => product.id == id)  
     
     return (
@@ -14,7 +14,7 @@ const ItemDetail = ({ product }) => {
             {
                 filteredProduct.map((p)=>{
                     return(
-                        <Card key={p.id} maxW='sm'>
+                        <Card key={p.id} category={p.category} maxW='sm'>
                             <CardBody>
                                 <Stack mt='6' spacing='3'>
                                 <img src={p.image} alt="" />

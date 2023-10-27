@@ -22,7 +22,7 @@ const ItemList = ({ product }) => {
                 })
             }
         </div>
-    )
-}
+    );
+};
 
 export default ItemList

@@ -8,7 +8,7 @@ const navbar = () => {
         <div>
 
 
-            <Flex>
+            <Flex flex="1">
                 <Box>
                     <Link to={"/"}>
                     {/* Brand */}
@@ -24,16 +24,16 @@ const navbar = () => {
                             Categorias
                         </MenuButton>
                         <MenuList>
-                            <Link to={`/category/${"Men's Clothing"}`}>
+                            <Link to={`/category/${"men's clothing"}`}>
                             <MenuItem>Men's Clothing</MenuItem>
                             </Link>
-                            <Link to={`/category/${"Women's Clothing"}`}>
+                            <Link to={`/category/${"women's clothing"}`}>
                             <MenuItem>Women's Clothing</MenuItem>
                             </Link>
-                            <Link to={`/category/${"Electronics"}`}>
+                            <Link to={`/category/${"electronics"}`}>
                             <MenuItem>Electronics</MenuItem>
                             </Link>
-                            <Link to={`/category/${"Jewelry"}`}>                            
+                            <Link to={`/category/${"jewelery"}`}>                            
                             <MenuItem>Jewelry</MenuItem>    
                             </Link>
                         </MenuList>

@@ -13,27 +13,27 @@ import ItemDetailContainer from './components/ItemDetailContainer'
 
 const App = () => {
   return (
-    <div>
-      <BrowserRouter>
+    <BrowserRouter>
       
-        <Navbar />
+      <Navbar />
 
-        <Routes>
-          <Route exact path='/' element={ <ItemListConteiner />} />
-          <Route exact path='/About' element={ <About />} /> 
-          <Route exact path='/Cart' element={ <Cart />} />
-          <Route exact path='/product/:id' element={<ItemDetailContainer />} />
-          <Route exact path='/category/:category' element={ <ItemListConteiner />} />
+      
+      <Routes>
+        <Route exact path='/' element={ <ItemListConteiner />} />
+        <Route exact path='/About' element={ <About />} /> 
+        <Route exact path='/Cart' element={ <Cart />} />
+        <Route exact path='/product/:id' element={<ItemDetailContainer />} />
+        <Route exact path='/category/:category' element={ <ItemListConteiner />} />
+      </Routes>
+      
           
         
       
-        </Routes>
       
         
-      </BrowserRouter>
+    </BrowserRouter>
 
       
-    </div>
 
     
   )

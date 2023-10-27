@@ -1,43 +1,36 @@
-import React from 'react'
-import ItemList from './ItemList'
-import { useState, useEffect } from 'react'
-import { Center } from '@chakra-ui/react'
-import { useParams } from 'react-router-dom'
+import React, { useState, useEffect } from 'react';
+import ItemList from './ItemList';
+import { Center } from '@chakra-ui/react';
+import { useParams } from 'react-router-dom';
 
-const ItemListConteiner = () => {
+const ItemListContainer = () => {
+  const { category } = useParams();
+  const [products, setProducts] = useState([]);
 
-    const {category} = useParams()
-    
-    const {filteredProducts, setFilteredProducts} = useState ([]);
+  useEffect(() => {
+    const getProducts = async () => {
+      const response = await fetch('https://fakestoreapi.com/products');
+      const data = await response.json();
+      console.log(data);
+      setProducts(data);
+    };
 
-    const getProducts = async ()=>{
-      const response = await fetch("https://fakestoreapi.com/products")
-      const data = await response.json()
+    getProducts();
+  }, []); // El array vacío asegura que el efecto solo se ejecute una vez, equivalente a componentDidMount en clases
 
-      return data
-    }
+  const filteredProducts = category
+    ? products.filter(product => product.category === category)
+    : products;
 
+  return (
+    <Center p="1rem">
+      <ItemList product={filteredProducts} />
+    </Center>
+  );
+};
 
-  const [product, setProduct] = useState ([])
-  
+export default ItemListContainer;
 
-  useEffect(() =>{
-    getProducts().then((p)=> setProduct(p))
-  }, [])
-
-  const filteredProduct = product.filter((product) => product.category == category);
-
-  return(
-    <>
-      <Center p="1rem">
-      {category ? <ItemList product={filteredProduct} /> : <ItemList product={product} />}
-      </Center>
-    </>
-  )
-}
-
-
-export default ItemListConteiner;
 
 
 
