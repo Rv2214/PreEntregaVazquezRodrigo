@@ -1,0 +1,90 @@
+.div__itemlistconteiner {
+    padding: .5rem;
+    margin: .5rem;
+}
+
+.div__itemlist{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+/* NAVBAR */
+
+.div__navbar h1 {
+    font-size: large;
+    font-weight: 600;
+    color: white;
+}
+
+.div__navbar {
+        background-color: #3182ce;
+        border-radius: 10px;
+}
+
+.iniciobutton__navbar{
+    background-color: #3182ce !important;
+    color: white !important;
+    font-size: x-large;
+    transition: transform 0.1s ease-in-out;
+}
+
+.iniciobutton__navbar:hover {
+    transform: scale(1.2);
+}
+
+.menubutton__navbar{
+    background-color: #3182ce !important;  
+    color: white !important;
+    font-size: larger;
+    transition: transform 0.1s ease-in-out;
+}
+.menubutton__navbar:hover{
+    transform: scale(1.2);
+}
+
+.div__cartwidget {
+    transition: transform 0.1s ease-in-out;
+    font-size: larger;
+}
+
+.div__cartwidget:hover {
+    transform: scale(1.2);
+}
+
+
+
+.img__item {
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+}
+
+
+.logo__navbar {
+    max-width: 100px;
+    width: 100%;
+    height: auto;
+}
+
+
+.wplogo__footer {
+    max-width: 100px;
+    width: 80%;
+    height: auto;
+}
+
+.conteiner__itemdetail {
+    display: flex;
+    flex-direction: wrap;
+}
+
+
+.div__carritovacio{
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+    height: auto;
+}
+
+

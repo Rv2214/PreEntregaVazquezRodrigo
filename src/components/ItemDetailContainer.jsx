@@ -1,33 +1,41 @@
-import React from 'react'
-import ItemDetail from './ItemDetail'
-import { useState } from 'react'
-import { useEffect } from 'react'
-
+import React, { useEffect, useState, useContext } from 'react';
+import ItemDetail from './ItemDetail';
+import { useParams } from 'react-router-dom';
+import { getFirestore, getDoc, doc } from 'firebase/firestore';
+import { CartContext } from './ShoppingCartContext';
+import { Flex } from '@chakra-ui/react'
 
 const ItemDetailContainer = () => {
+    const [product, setProduct] = useState(null);
+    const { id } = useParams();
+    const { setCount } = useContext(CartContext);
 
-    const getProducts = async ()=>{
-        const response = await fetch("https://fakestoreapi.com/products")
-        const data = await response.json()
+    const getDocId = () => {
+        const db = getFirestore();
+        const itemDoc = doc(db, 'Sillas', `${id}`);
 
-        return data
+        getDoc(itemDoc).then((snapshot) => {
+            if (snapshot.exists()) {
+                setProduct({ id: snapshot.id, ...snapshot.data() });
+                setCount(0);
+            } else {
+                console.log('No se encontró el producto');
+            } 
+        })
     }
 
+    useEffect(() => {
+        getDocId(id);
+    }, [id]);
 
-    const [product, setProduct] = useState ([])
-    console.log(product);
-
-    useEffect(() =>{
-    getProducts().then((p)=> setProduct(p))
-    }, [])
-    
     return (
-    <>
-        <ItemDetail 
-        product={product} 
-        />
-    </>
-    )
-}
+        <Flex flex="1" alignItems='center' flexDirection='row' className='conteiner__itemdetail'>
+            <ItemDetail product={product} id={id}/>
+        </Flex>
+    );
+};
 
-export default ItemDetailContainer
+export default ItemDetailContainer;
+
+
+

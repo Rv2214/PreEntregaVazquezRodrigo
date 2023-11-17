@@ -1,48 +1,67 @@
-import React from 'react'
-import { Card, CardBody, Stack, Heading, Text, Divider, CardFooter, ButtonGroup, Button } from '@chakra-ui/react';
+import React, { useContext } from 'react';
+import { Card, CardBody, Stack, Heading, Text, Divider, CardFooter, ButtonGroup, Button, Badge, Spacer, Box } from '@chakra-ui/react';
 import { useParams } from 'react-router-dom';
-import CounterComponent from './CounterComponent';
+import { MinusIcon, AddIcon } from '@chakra-ui/icons';
+import { CartContext } from './ShoppingCartContext';
+import Swal from 'sweetalert2';
 
-const ItemDetail = ({ product }) => {
+const ItemDetail = ({ product }) => { 
+    const {id} = useParams()
+    const { count, increment, decrement, addToCart } = useContext(CartContext);
+    
+    const handleAddToCart = () => {
+    addToCart(product.id, count); 
+    Swal.fire(`Vas a agregar ${count} productos a tu carrito`);
+    };
 
-    const { id } = useParams()
-    
-    const filteredProduct= product.filter((product) => product.id == id)  
-    
+    if (!product) {
+        return null; 
+    }
+
     return (
         <>
-            {
-                filteredProduct.map((p)=>{
-                    return(
-                        <Card key={p.id} category={p.category} maxW='sm'>
+                        <Card key={id} category={product.category} maxW='sm'>
                             <CardBody>
                                 <Stack mt='6' spacing='3'>
-                                <img src={p.image} alt="" />
-                                <Heading size='md'>{p.title}</Heading>
+                                <img src={product.image} alt="" />
+                                <Heading size='md'>{product.title}</Heading>
                                 <Text>
-                                    {p.description}
+                                    {product.description}
                                 </Text>
                                 <Text color='blue.600' fontSize='2xl'>
-                                    ${p.price}
+                                    ${product.price}
                                 </Text>
                                 </Stack>
                             </CardBody>
                             <Divider />
                             <CardFooter>
-                                <ButtonGroup spacing='2'>
+                                <ButtonGroup spacing='1.5'>
                                     
-                                        <CounterComponent />
-                                
+                                        
+                                        
                                     <Button variant='ghost' colorScheme='blue'>
                                         
                                     </Button>
                                 </ButtonGroup>
+                                <Box>
+                                    <Button variant='outline' colorScheme='teal' onClick={decrement} m={.5}>
+                                        <MinusIcon boxSize={2.5} />
+                                    </Button>
+                                    <Badge ml='2x1' fontSize='1.5rem' colorScheme='green' variant='outline' m={.5}>
+                                        {count}
+                                    </Badge>
+                                    <Button variant='outline' colorScheme='teal' onClick={increment} m={.5}>
+                                        <AddIcon boxSize={2.5} />
+                                    </Button>
+                                </Box>
+                                <Spacer />
+                                <Box m={1}>
+                                    <Button onClick={handleAddToCart}>
+                                        Agregar
+                                    </Button>
+                                </Box>
                             </CardFooter>
                         </Card>
-                    )
-                })
-            }  
-
         </>
     )
 }
