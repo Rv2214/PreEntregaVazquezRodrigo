@@ -8,4 +8,4 @@
 
 ## Presentación
 
-![Rv Comers app](https://github.com/Rv2214/PreEntregaVazquezRodrigo/assets/131439746/3803f4ad-b89c-44a7-8174-35e85a1c672c)
+![Vite-React-Google-Chrome-2023-11-17-17-01-09](https://github.com/Rv2214/PreEntregaVazquezRodrigo/assets/131439746/05fa9cc2-bc8c-4b9e-b197-fab52ad1bb5c)
